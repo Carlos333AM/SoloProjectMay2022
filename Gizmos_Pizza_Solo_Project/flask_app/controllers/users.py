@@ -64,8 +64,6 @@ def edit_user(id):
 def update_user_info(id): 
     if 'user_id' not in session: 
         return redirect('/gizmospizza/logout') 
-    if not User.validate_update(request.form): 
-        return redirect(f'/gizmospizza/edit/{id}')
     user_info = { 
         "first_name" : request.form['first_name'], 
         "last_name" : request.form['last_name'], 
