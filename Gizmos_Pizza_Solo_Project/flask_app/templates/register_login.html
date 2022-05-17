@@ -1,0 +1,112 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Welcome Page / Register</title> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+</head> 
+
+<body style="background: url(https://media.istockphoto.com/photos/black-brick-wall-dark-background-for-design-picture-id639173848?b=1&k=20&m=639173848&s=170667a&w=0&h=s3lYaOtetdbj7HLHPIwin0HITi0vF3ZHPFtVrcDkXXc=)"> 
+    <div class="container"> 
+        <h1>WELCOME TO</h1> 
+        <img src="/static/img/GizmosPizzaLogo.png" alt="GizmoLogo" class="gizmo_logo"> 
+        <form action="/gizmospizza/create-user" method="POST"> 
+            <h3>New Customers</h3> 
+            <h4>Register</h4> 
+            {% with messages = get_flashed_messages(category_filter=['register']) %} 
+                {% if messages %} 
+                    <div>
+                        <strong role="alert" class="warning">PLEASE CORRECT THE FOLLOWING:</strong> 
+                        {% for message in messages %} 
+                            <p class="warning">{{ message }}</p> 
+                        {% endfor %} 
+                    </div> 
+                {% endif %} 
+            {% endwith %} 
+            <div class="row_maker"> 
+                <div class="left_register_box">
+                    <div class="input-group mb-3"> 
+                        <label for="first_name" class="label_font">First Name:</label> 
+                        <input type="text" name="first_name"> 
+                    </div> 
+                    <div class="input-group mb-3"> 
+                        <label for="last_name" class="label_font">Last Name:</label> 
+                        <input type="text" name="last_name"> 
+                    </div> 
+                    <div class="input-group mb-3"> 
+                        <label for="address" class="label_font" id="address_rh">Address:</label> 
+                        <input type="text" name="address"> 
+                    </div> 
+                    <div class="input-group mb-3"> 
+                        <label for="city" class="label_font" id="city_rh">City:</label> 
+                        <input type="text" name="city"> 
+                    </div> 
+                    <div class="input-group mb-3">
+                        <label for="state" class="label_font" id="state_rh">State:</label>
+                        <select name="state"> 
+                            <option value="AZ">AZ</option> 
+                            <option value="CA">CA</option> 
+                            <option value="CO">CO</option> 
+                            <option value="NV">NV</option> 
+                            <option value="NM">NM</option> 
+                            <option value="OR">OR</option> 
+                            <option value="TX">TX</option> 
+                            <option value="UT">UT</option> 
+                            <option value="WA">WA</option> 
+                        </select> 
+                    </div>
+                    <div class="input-group mb-3"> 
+                        <label for="zip_code" class="label_font" id="zip_code_rh">Zip Code:</label> 
+                        <input type="text" name="zip_code"> 
+                    </div> 
+                </div> 
+                <div class="right_reg_box"> 
+                    <div class="input-group mb-3"> 
+                        <label for="email" class="label_font" id="email_reg_rh">Email:</label> 
+                        <input type="text" name="email"> 
+                    </div> 
+                    <div class="input-group mb-3"> 
+                        <label for="password" class="label_font">Password:</label> 
+                        <input type="password" name="password"> 
+                    </div> 
+                    <div> 
+                        <label for="confirm_password" class="label_font" id="confirm_rh">Confirm:</label> 
+                        <input type="password" name="confirm_password"> 
+                    </div> 
+                </div> 
+            </div>
+            <button type="submit" class="register_button">Register</button> 
+        </form> 
+
+        <form action="/gizmospizza/login" method="POST"> 
+            <h3>Returning Customers</h3> 
+            <h4>Login</h4> 
+            {% with messages = get_flashed_messages(category_filter=['login']) %} 
+                {% if messages %} 
+                    <div role="alert"> 
+                        <strong class="warning">PLEASE CORRECT THE FOLLOWING:</strong> 
+                        {% for message in messages %} 
+                            <p class="warning">{{ message }}</p> 
+                        {% endfor %} 
+                    </div> 
+                {% endif %} 
+            {% endwith %} 
+            <div class="row_maker">
+                <div class="right_login_box"> 
+                    
+                    <label for="email" class="label_font">Email:</label> 
+                    <input type="text" name="email"> 
+                </div> 
+                <div class="left_login_box"> 
+                    <label for="password" class="label_font" id="space_below">Password:</label> 
+                    <input type="password" name="password"> 
+                </div> 
+            </div>
+            <button type="submit" class="login_button">Login</button> 
+        </form> 
+    </div> 
+</body> 
+</html> 

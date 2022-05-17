@@ -1,0 +1,148 @@
+.container { 
+    margin: auto; 
+} 
+h1, h2, h3, h4, h5 { 
+    color: red;
+} 
+.label_font, p { 
+    font-weight: bolder; 
+    color: white;
+} 
+h1, h2, h3 { 
+    text-align: center; 
+} 
+.warning { 
+    color: red; 
+    font-weight: bolder; 
+} 
+.table { 
+    border-style: solid; 
+    border-color: black; 
+    border-width: 3px;
+} 
+.rows { 
+    display: flex; 
+    flex-direction: row; 
+} 
+.link_rows { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+} 
+.menu_column { 
+    display: flex; 
+    flex-direction: column; 
+} 
+.menu_row { 
+    display: flex; 
+    flex-direction: row; 
+} 
+.gizmo_logo { 
+    height: 400px; 
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+} 
+#space_below { 
+    margin-bottom: 50px; 
+} 
+#space_above { 
+    margin-bottom: 20px; 
+} 
+.button, .register_button, .login_button, .add_cart_button, .update_button { 
+    background-color: red; 
+    color: white; 
+    font-weight: bolder; 
+    margin-top: 10px; 
+} 
+.link_spacer_lf { 
+    margin-left: 10px;
+} 
+.link_space_ctr { 
+    margin-left: 10px; 
+    margin-right: 10px; 
+} 
+.login_button { 
+    margin-left: 97px; 
+    margin-bottom: 90px; 
+} 
+.register_button { 
+    margin-left: 90px; 
+    margin-bottom: 50px; 
+    margin-top: 18px;
+} 
+.add_cart_button { 
+    margin-bottom: 80px; 
+} 
+.update_button { 
+    margin-left: 139px; 
+    margin-bottom: 50px; 
+} 
+.row_maker_update { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+    margin-top: 35px;
+} 
+.row_maker { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+}
+.pizza_dessert_section { 
+    margin-left: 23px; 
+} 
+#address_rh { 
+    margin-right: 18px; 
+} 
+#city_rh { 
+    margin-right: 51px; 
+} 
+#state_rh { 
+    margin-right: 39px; 
+} 
+#zip_code_rh { 
+    margin-right: 12px; 
+} 
+#email_reg_rh { 
+    margin-right: 33px; 
+} 
+#confirm_rh { 
+    margin-right: 8px; 
+} 
+#brownie_rh { 
+    margin-right: 10px; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+} 
+#size_rh { 
+    margin-right: 10px; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+} 
+#select_box { 
+    width: 150px;
+} 
+#qty_select_box_lh { 
+    margin-left: 15px;
+} 
+#ice_cream_rh { 
+    margin-right: 5px; 
+} 
+#cake_rh { 
+    margin-right: 35px; 
+} 
+#link_header_space {
+    margin-top: 25px;
+} 
+#state_updt_rh { 
+    margin-right: 31px; 
+} 
+#city_updt_rh { 
+    margin-right: 43px; 
+} 
+#address_updt_rh { 
+    margin-right: 11px; 
+} 

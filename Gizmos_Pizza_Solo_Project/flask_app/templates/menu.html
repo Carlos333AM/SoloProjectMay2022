@@ -1,0 +1,243 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Menu Page</title> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+</head> 
+<body style="background: url(https://media.istockphoto.com/photos/black-brick-wall-dark-background-for-design-picture-id639173848?b=1&k=20&m=639173848&s=170667a&w=0&h=s3lYaOtetdbj7HLHPIwin0HITi0vF3ZHPFtVrcDkXXc=)"> 
+    <div class="container"> 
+        <div class="link_rows" id="link_header_space"> 
+            <p>Welcome to Gizmo's Pizza!</p> 
+            <div> 
+                <a href="/gizmospizza/account">Account</a> 
+                <a href="/gizmospizza/cart/{{ order[0].id }}" class="link_space_ctr">Cart</a> 
+                <a href="/gizmospizza/logout">Log Out</a> 
+            </div> 
+        </div> 
+        <img src="/static/img/GizmosPizzaLogo.png" alt="GizmoLogo" class="gizmo_logo"> 
+        <div> 
+            <h2>MENU</h2> 
+        </div> 
+        <div> 
+            <form action="/gizmospizza/create-order" method="POST"> 
+
+                <h4>Pizzas</h4> 
+                <div class="pizza_dessert_section">
+                    <div> 
+                        <label for="pizza_type" class="label_font">Type of Pizza:</label> 
+                        <select name="pizza_type" id="select_box"> 
+                            <option value="">- Select a Pizza -</option> 
+                            <option value="BBQ_Chicken">Bar-B-Que Chicken</option> 
+                            <option value="Cheese Supreme">Cheese Supreme</option> 
+                            <option value="Hawaiian">Hawaiian</option>
+                            <option value="Meat Lovers">Meat Lovers</option> 
+                            <option value="Pepperoni Supreme">Pepperoni Supreme</option> 
+                            <option value="Veggie Supreme">Veggie Supreme</option> 
+                        </select> 
+                    </div> 
+                    <div> 
+                        <div class="menu_row"> 
+                            <div class="label_font"> 
+                                <label for="pizza_size" class="label_font" id="size_rh">Size:</label> 
+                                <input type="radio" value="" name="pizza_size" checked> 
+                                <label for="pizza_size">None</label> 
+                                <input type="radio" value="Small" name="pizza_size"> 
+                                <label for="pizza_size">Small</label> 
+                                <input type="radio" value="Medium" name="pizza_size"> 
+                                <label for="pizza_size">Medium</label> 
+                                <input type="radio" value="Large" name="pizza_size"> 
+                                <label for="pizza_size">Large</label> 
+                            </div>
+                        </div> 
+                    </div> 
+                    <div> 
+                        <label for="pizza_quantity" class="label_font" id="space_below">Qty</label> 
+                        <select name="pizza_quantity" id="qty_select_box_lh"> 
+                            <option value="">0</option> 
+                            <option value="1">1</option> 
+                            <option value="2">2</option> 
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option> 
+                        </select> 
+                    </div> 
+                </div>
+
+                <h4>Drinks</h4> 
+                <div class="row_maker"> 
+                    <div class="soda_section"> 
+                        <div>
+                            <label for="soda" class="label_font">Sodas:</label> 
+                            <select name="soda" id="select_box"> 
+                                <option value="">- Flavor -</option> 
+                                <option value="Cola">Cola / Caramel</option> 
+                                <option value="Ginger Ale">Ginger Ale</option> 
+                                <option value="Lime Soda">Lime Soda</option> 
+                                <option value="Orange Soda">Orange Soda</option> 
+                                <option value="Peach Soda">Peach Soda</option> 
+                                <option value="Root Beer">Root Beer</option> 
+                            </select> 
+                        </div> 
+                        <div class="label_font"> 
+                            <label for="soda_size" class="label_font" id="size_rh">Size:</label> 
+                            <input type="radio" value="" name="soda_size" checked> 
+                            <label for="soda_size">None</label> 
+                            <input type="radio" value="Small" name="soda_size"> 
+                            <label for="soda_size">Small</label> 
+                            <input type="radio" value="Medium" name="soda_size"> 
+                            <label for="soda_size">Medium</label> 
+                            <input type="radio" value="Large" name="soda_size"> 
+                            <label for="soda_size">Large</label> 
+                        </div> 
+                        <label for="soda_quantity" class="label_font" id="space_below">Qty:</label> 
+                        <select name="soda_quantity" id="qty_select_box_lh"> 
+                            <option value="">0</option> 
+                            <option value="1">1</option> 
+                            <option value="2">2</option> 
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option> 
+                        </select> 
+                    </div> 
+                    <div class="fruit_drink_section"> 
+                        <div> 
+                            <label for="fruit_drink" class="label_font">Fruit Drinks:</label> 
+                            <select name="fruit_drink" id="select_box"> 
+                                <option value="">- Flavor -</option> 
+                                <option value="Blue Berry">Blue Berry</option> 
+                                <option value="Mango">Mango</option> 
+                                <option value="Orange">Orange</option> 
+                                <option value="Pineapple">Pineapple</option> 
+                                <option value="Strawberry">Strawberry</option> 
+                                <option value="Watermelon">Watermelon</option> 
+                            </select> 
+                        </div> 
+                        <div> 
+                            <label for="fruit_drink_size" class="label_font" id="size_rh">Size:</label> 
+                            <input type="radio" value="" name="fruit_drink_size" checked> 
+                            <label for="fruit_drink_size" class="label_font">None</label> 
+                            <input type="radio" value="Small" name="fruit_drink_size"> 
+                            <label for="fruit_drink_size" class="label_font">Small</label> 
+                            <input type="radio" value="Medium" name="fruit_drink_size"> 
+                            <label for="soda_size" class="label_font">Medium</label> 
+                            <input type="radio" value="Large" name="fruit_drink_size"> 
+                            <label for="fruit_drink_size" class="label_font">Large</label> 
+                        </div> 
+                        <label for="fruit_drink_quantity" class="label_font">Qty:</label>
+                        <select name="fruit_drink_quantity" id="qty_select_box_lh"> 
+                            <option value="">0</option> 
+                            <option value="1">1</option> 
+                            <option value="2">2</option> 
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option> 
+                        </select> 
+                    </div>
+                    <div class="milk_shake_section"> 
+                        <label for="milk_shake" class="label_font" >Milk Shakes:</label> 
+                        <select name="milk_shake" id="select_box"> 
+                            <option value="">- Flavor -</option> 
+                            <option value="Chocolate">Chocolate</option> 
+                            <option value="Cookies Cream">Cookies & Cream</option> 
+                            <option value="Neapolitan">Neapolitan</option> 
+                            <option value="Peanut Butter">Peanut Butter</option> 
+                            <option value="Strawberry">Strawberry</option> 
+                            <option value="Vanilla">Vanilla</option> 
+                        </select> 
+                        <div> 
+                            <label for="milk_shake_size" class="label_font" id="size_rh">Size:</label> 
+                            <input type="radio" value="" name="milk_shake_size" checked> 
+                            <label for="milk_shake_size" class="label_font">None</label> 
+                            <input type="radio" value="Small" name="milk_shake_size"> 
+                            <label for="milk_shake_size" class="label_font">Small</label> 
+                            <input type="radio" value="Medium" name="milk_shake_size"> 
+                            <label for="sodaa_size" class="label_font">Medium</label> 
+                            <input type="radio" value="Large" name="milk_shake_size"> 
+                            <label for="milk_shake_size" class="label_font">Large</label> 
+                        </div> 
+                        <label for="milk_shake_quantity" class="label_font" id="space_below">Qty:</label> 
+                        <select name="milk_shake_quantity" id="qty_select_box_lh"> 
+                            <option value="">0</option> 
+                            <option value="1">1</option> 
+                            <option value="2">2</option> 
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option> 
+                        </select> 
+                    </div> 
+                </div>
+
+                <h4>Desserts</h4> 
+                <div class="pizza_dessert_section">
+                    <div>
+                        <label for="ice_cream" class="label_font" id="ice_cream_rh">Ice Cream:</label> 
+                        <select name="ice_cream" id="select_box"> 
+                            <option value="">- Flavor -</option> 
+                            <option value="Butter Pecan">Butter Pecan</option> 
+                            <option value="Chocolate Chip">Chocolate Chip</option> 
+                            <option value="Maple Walnut">Maple Walnut</option> 
+                            <option value="Mint Chocolate">Mint Chocolate</option> 
+                            <option value="Strawberry">Strawberry</option> 
+                            <option value="Vanilla">Vanilla</option> 
+                        </select>
+                        <select name="ice_cream_quantity"> 
+                            <option value="">0</option> 
+                            <option value="1">1</option> 
+                            <option value="2">2</option> 
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option> 
+                        </select> 
+                    </div> 
+                    <div> 
+                        <label for="brownie" class="label_font" id="brownie_rh">Brownies:</label> 
+                        <select name="brownie" id="select_box"> 
+                            <option value="">- Flavor -</option> 
+                            <option value="Baked Brownie">Baked Brownie</option> 
+                            <option value="Chocolate">Chocolate</option> 
+                            <option value="Cream Cheese">Cream Cheese</option> 
+                            <option value="Frozen Sundae">Frozen Sundae</option> 
+                            <option value="Peanut Buter_Cup">Peanut Butter Cup</option> 
+                            <option value="Walnut Brownie">Walnut Brownie</option> 
+                        </select>
+                        <select name="brownie_quantity"> 
+                            <option value="">0</option> 
+                            <option value="1">1</option> 
+                            <option value="2">2</option> 
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option> 
+                        </select> 
+                    </div> 
+                    <div> 
+                    <div> 
+                        <label for="cake" class="label_font" id="cake_rh">Cakes:</label> 
+                        <select name="cake" id="select_box"> 
+                            <option value="">- Flavor -</option> 
+                            <option value="Banana">Banana</option> 
+                            <option value="Carrot">Carrot</option> 
+                            <option value="Chocolate">Chocolate</option> 
+                            <option value="Cheesecake">Cheesecake</option> 
+                            <option value="Lemon">Lemon</option> 
+                            <option value="Vanilla">Vanilla</option> 
+                        </select> 
+                        <select name="cake_quantity" id="space_below"> 
+                            <option value="">0</option> 
+                            <option value="1">1</option> 
+                            <option value="2">2</option> 
+                            <option value="3">3</option> 
+                            <option value="4">4</option> 
+                            <option value="5">5</option> 
+                        </select> 
+                    </div> 
+                </div>
+                <button type="submit" class="add_cart_button" id="space_below">Add To Cart</button> 
+            </form> 
+        </div> 
+    </div> 
+</body> 
+</html> 
