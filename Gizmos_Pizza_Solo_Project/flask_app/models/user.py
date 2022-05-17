@@ -88,9 +88,6 @@ class User:
         if len(user['city']) < 2: 
             flash("City must be at least 2 letters long.", "register") 
             is_valid = False 
-        if user['state'] == user['']: 
-            flash("Select a state.", "register") 
-            is_valid = False 
         if results: 
             flash("This email is already used. Please try another.", "register") 
             is_valid = False 
